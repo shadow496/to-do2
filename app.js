@@ -32,16 +32,16 @@ function renderTodo(todo) {
   }
 }
 
-// function addTodo(text) {
-//   const todo = {
-//     text,
-//     checked: false,
-//     id: Date.now(),
-//   };
+function addTodo(text) {
+  const todo = {
+    text,
+    checked: false,
+    id: Date.now(),
+  };
 
-//   todoItems.push(todo);
-//   renderTodo(todo);
-// }
+  todoItems.push(todo);
+  renderTodo(todo);
+}
 
 function toggleDone(key) {
   const index = todoItems.findIndex(item => item.id === Number(key));
@@ -49,15 +49,15 @@ function toggleDone(key) {
   renderTodo(todoItems[index]);
 }
 
-// function deleteTodo(key) {
-//   const index = todoItems.findIndex(item => item.id === Number(key));
-//   const todo = {
-//     deleted: true,
-//     ...todoItems[index]
-//   };
-//   todoItems = todoItems.filter(item => item.id !== Number(key));
-//   renderTodo(todo);
-// }
+function deleteTodo(key) {
+  const index = todoItems.findIndex(item => item.id === Number(key));
+  const todo = {
+    deleted: true,
+    ...todoItems[index]
+  };
+  todoItems = todoItems.filter(item => item.id !== Number(key));
+  renderTodo(todo);
+}
 
 const form = document.querySelector('.js-form');
 form.addEventListener('submit', event => {
